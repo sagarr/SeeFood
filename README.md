@@ -9,5 +9,5 @@ the weights get stored in 'weights' dir.
 
 ### prediction
 Run
-```$ python src/predict.py <img_path>
+```$ python src/predict.py <img_path>``` and
 it will print food class name
