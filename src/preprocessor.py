@@ -11,7 +11,10 @@ def train_data_generator(batch_size=16):
         'data/train',  # this is the target directory
         target_size=(150, 150),  # all images will be resized to 150x150
         batch_size=batch_size,
-        class_mode='binary')  # since we use binary_crossentropy loss, we need binary labels
+        class_mode='categorical',
+        shuffle=True)  # since we use binary_crossentropy loss, we need binary labels
+
+        print(train_generator.class_indices)
 
         return train_generator
 
@@ -24,6 +27,9 @@ def val_data_generator(batch_size=16):
         'data/val',
         target_size=(150, 150),
         batch_size=batch_size,
-        class_mode='binary')
+        class_mode='categorical',
+        shuffle=True)
 
-        return val_datagen
+        print(val_generator.class_indices)
+
+        return val_generator

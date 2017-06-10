@@ -2,6 +2,7 @@ from model import small_convnet
 from preprocessor import train_data_generator, val_data_generator
 
 def train():
+    batch_size = 16
     train_generator = train_data_generator()
     val_generator = val_data_generator()
 
@@ -14,7 +15,7 @@ def train():
     model.fit_generator(
         train_generator,
         steps_per_epoch=2000 // batch_size,
-        epochs=10,
+        epochs=5,
         validation_data=val_generator,
         validation_steps=800 // batch_size)
 

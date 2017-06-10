@@ -13,14 +13,14 @@ def predict(img_file):
     x = img_to_array(img)
     x = misc.imresize(x, (150, 150, 3))
     x = x.reshape((1,) + x.shape)
-    p =  model.predict(x)
-
+    p =  model.predict_classes(x, verbose=1)
+    print(p)
     # get label indices
     train_generator = train_data_generator()
     class_dictionary = train_generator.class_indices
-
-    return class_dictionary.keys()[class_dictionary.values().index(int(p[0][0]))]
+    
+    return class_dictionary.keys()[class_dictionary.values().index(int(p[0]))]
 
 
 if __name__ == '__main__':
-    print(predict(sys.argv[1]))
+    print("Predicted class is: %s" %(predict(sys.argv[1])))

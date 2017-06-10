@@ -20,11 +20,11 @@ def small_convnet():
     model.add(Dense(64))
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(1))
-    model.add(Activation('sigmoid'))
+    model.add(Dense(3))
+    model.add(Activation('softmax'))
 
-    model.compile(loss='binary_crossentropy',
+    model.compile(loss='categorical_crossentropy',
               optimizer='adam',
-              metrics=['accuracy'])
+              metrics=['acc'])
 
     return model
