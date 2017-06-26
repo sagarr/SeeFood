@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+{% block body %}
+  <h2>SeeFood - Import your food picture</h2>
+  {% if error %}<p class=error><strong>Error:</strong> {{ error }}{% endif %}
+  <form action="{{ url_for('guess') }}" method=post>
+    <dl>
+      <dt>Paste food url:
+      <dd><input type=text name=pic_url>
+      <dd><input type=submit value=Guess!!>
+    </dl>
+  </form>
+{% endblock %}
