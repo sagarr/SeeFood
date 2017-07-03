@@ -12,5 +12,15 @@ the weights get stored in 'weights' dir.
 
 ### prediction
 Run
-```$ python src/predict.py <img_path>``` and
+```
+$ cd src
+$ python3 predict.py ../data/val/vadapav/images\ \(24\).jpg
+``` and
 it will print food class name
+
+### Webapp
+```
+$ cd src
+$ export FLASK_APP=webapp/webapp.py
+$ python3 -m flask run
+```

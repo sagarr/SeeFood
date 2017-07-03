@@ -8,7 +8,7 @@ def train_data_generator(batch_size=16):
         horizontal_flip=True)
 
         train_generator = train_datagen.flow_from_directory(
-        'data/train',  # this is the target directory
+        '../data/train',  # this is the target directory
         target_size=(150, 150),  # all images will be resized to 150x150
         batch_size=batch_size,
         class_mode='categorical',
@@ -24,7 +24,7 @@ def val_data_generator(batch_size=16):
         val_datagen = ImageDataGenerator(rescale=1./255)
 
         val_generator = val_datagen.flow_from_directory(
-        'data/val',
+        '../data/val',
         target_size=(150, 150),
         batch_size=batch_size,
         class_mode='categorical',
