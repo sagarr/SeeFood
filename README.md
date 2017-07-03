@@ -15,10 +15,13 @@ Run
 ```
 $ cd src
 $ python3 predict.py ../data/val/vadapav/images\ \(24\).jpg
-``` and
+``` 
+and
 it will print food class name
 
 ### Webapp
+Run flask webapp
+
 ```
 $ cd src
 $ export FLASK_APP=webapp/webapp.py
