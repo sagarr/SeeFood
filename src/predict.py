@@ -2,7 +2,8 @@ import sys
 
 from keras.preprocessing.image import img_to_array, load_img
 from scipy import misc
-
+import config
+import os
 import model
 import preprocessor
 
@@ -18,7 +19,10 @@ def predict_img(img):
     x = x.reshape((1,) + x.shape)
 
     convnet = model.small_convnet()
-    convnet.load_weights('../weights/weights.h5')
+
+    weights_path = os.path.join(config.weights_dir, config.weights_name)
+
+    convnet.load_weights(weights_path)
     p = convnet.predict_classes(x, verbose=1)
     print(p)
     # get label indices
