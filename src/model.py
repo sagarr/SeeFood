@@ -1,6 +1,7 @@
 from keras.models import Sequential
 from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
+import config
 
 def small_convnet():
     model = Sequential()
@@ -20,11 +21,11 @@ def small_convnet():
     model.add(Dense(64))
     model.add(Activation('relu'))
     model.add(Dropout(0.5))
-    model.add(Dense(3))
+    model.add(Dense(config.number_of_output_classes))
     model.add(Activation('softmax'))
 
     model.compile(loss='categorical_crossentropy',
-              optimizer='adam',
-              metrics=['acc'])
+                  optimizer='adam',
+                  metrics=['acc'])
 
     return model
